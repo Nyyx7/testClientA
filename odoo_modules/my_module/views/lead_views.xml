@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="crm_lead_form_view_inherited">
+            <field name="name">crm.lead.form.inherited</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <field name="lang_id" position="attributes">
+                    <attribute name="default">en_Us</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
