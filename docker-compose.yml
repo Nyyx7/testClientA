@@ -1,0 +1,35 @@
+version: '2'
+services:
+  web:
+    #image: odoo:12.0
+    build: ./odoo-14
+    depends_on:
+      - db
+    ports:
+      - "9469:8069"
+#    links:
+#      - wdb
+#    environment:
+#      WDB_SOCKET_SERVER: wdb
+#      WDB_NO_BROWSER_AUTO_OPEN: 'True'
+    volumes:
+      - odoo-14-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./odoo_modules:/mnt/odoo_modules
+      - ../odoo_modules:/mnt/odoo-modules
+  db:
+    image: postgres:10
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-14-db-data:/var/lib/postgresql/data/pgdata
+#  wdb:
+#    image: kozea/wdb
+#    ports:
+#      - "1984:1984"
+volumes:
+  odoo-14-web-data:
+  odoo-14-db-data:

@@ -1,0 +1,12 @@
+{
+  "terminal.integrated.profiles.linux": {
+    "bash-login": {
+      "path": "/bin/bash",
+      "args": ["-l"]
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.automationShell.linux": "/bin/bash",
+  "python.defaultInterpreterPath": "/usr/bin/python3"
+}
+  

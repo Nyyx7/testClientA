@@ -1,0 +1,15 @@
+{
+    "name": "Odoo Container",
+    // The order of the files is important since later files override previous ones
+    "dockerComposeFile": ["../docker-compose.yml", "docker-compose.extend.yml"],
+    // An array of extension IDs that specify the extensions to
+    // install inside the container when you first attach to it.
+    "extensions": ["majhirockzz.odoo-extension-pack", "ms-python.vscode-pylance", "mrorz.language-gettext", "visualstudioexptteam.vscodeintellicode"],
+    // Any *default* container specific VS Code settings
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "workspaceFolder": "/mnt/odoo_modules",
+    "service": "web",
+    "shutdownAction": "stopCompose" 
+  }
