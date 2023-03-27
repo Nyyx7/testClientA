@@ -6,5 +6,5 @@
         'views/my_model_views.xml',
     ],
     'installable': True,
-    'application': False,
+    
 }
