@@ -10,7 +10,8 @@
         'data/sequence.xml',
         'data/sequence2.xml',
         'views/patient.xml',
-        'views/appointment.xml'
+        'views/crm_lead_view_form_inherit.xml',
+        'views/appointment.xml',
 
         
     ],
