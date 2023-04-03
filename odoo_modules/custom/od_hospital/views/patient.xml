@@ -14,6 +14,7 @@
         </record>
 
 
+
         <!--tree view of the patient model-->
         <record id="patient_tree" model="ir.ui.view">
             <field name="name">hospital.patient.tree</field>
@@ -23,6 +24,8 @@
                     <field name="name_seq" />
                     <field name="patient_name"/>
                     <field name="patient_age"/>
+                    <field name="age_group" />
+                    <field name="gender" />
                     <field name="notes"/>
                 </tree>
             </field>
@@ -52,6 +55,9 @@
                             </group>
                             <group>
                                 <field name="patient_age"/>
+                                <field name="gender" />
+                                <field name="age_group" />
+
                             </group>
                         </group>    
                         <group>
@@ -85,6 +91,6 @@
         </record>
         
         <menuitem id="menu_hospital_root" name="Hospital" sequence="0" web_icon="od_hospital,static/description/icon.png"/>
-        <menuitem id="menu_hospital_patient" name="Patients" parent="menu_hospital_root" action="action_patient"/> 
+        <menuitem id="menu_hospital_patient" name="Patients" parent="menu_hospital_root" action="action_patient" sequence="0"/> 
     </data>
 </odoo>

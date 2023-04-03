@@ -6,13 +6,13 @@
 
 
 
-        <!-- Sequences for appointment.order -->
+        <!-- Sequences for patients.order -->
 
-        <record id="seq_hospital_patient" model="ir.sequence">
+        <record id="seq_hospital_appointment" model="ir.sequence">
 
-            <field name="name">Patient Order</field>
+            <field name="name">appointment Order</field>
 
-            <field name="code">hospital.patient.sequence</field>
+            <field name="code">hospital.appointment.sequence</field>
 
             <field name="prefix">SQ</field>
 

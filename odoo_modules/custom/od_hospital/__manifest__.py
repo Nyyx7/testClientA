@@ -4,11 +4,15 @@
     'category': 'Sales',
     'summary': 'Custom module ',
     'description': 'This is new module ',
-    'depends': ['base', 'mail','sale'],
+    'depends': ['base', 'mail','sale','crm'],
     'data': [
         'security/ir.model.access.csv',
         'data/sequence.xml',
-        'patient.xml',
+        'data/sequence2.xml',
+        'views/patient.xml',
+        'views/appointment.xml'
+
+        
     ],
     'installable': True,
     'application':True,

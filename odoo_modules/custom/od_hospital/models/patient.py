@@ -6,11 +6,20 @@ class SalesOrderInherit(models.Model):
         string='Patient Name'
     )
 
+class CrmLeadInherit(models.Model):
+    _inherit = 'crm.lead'
+    patient_name = fields.Char(
+        string='Patient Name'
+    )
+
+
 class HospitalPatient(models.Model): 
     _name = 'hospital.patient'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'patient record'
     _rec_name = 'patient_name'
+
+                
 
     patient_name = fields.Char(
         string='Name', required=True
@@ -38,6 +47,10 @@ class HospitalPatient(models.Model):
         
     )
 
+    gender = fields.Selection(selection=[('male', 'Male'),('female', 'Female'),], string='gender', default='male') 
+    age_group = fields.Selection(selection=[('major', 'Major'),('minor', 'Minor'),], string='Age_group',compute="_compute_total") 
+
+
     @api.model
     def create(self, vals):
         if vals.get('name_seq', 'New') == 'New':
@@ -45,7 +58,15 @@ class HospitalPatient(models.Model):
            'hospital.patient.sequence') or _('New')
         result = super(HospitalPatient, self).create(vals)
         return result
-    
+
+    @api.depends("patient_age")
+    def _compute_total(self):
+        for record in self:
+            if record in self :
+                if record.patient_age < 18 :
+                    record.age_group = 'minor'
+                else :
+                    record.age_group = 'major'
     
     
     
