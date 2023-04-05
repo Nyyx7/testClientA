@@ -3,6 +3,8 @@
 
 <odoo>
     <data>
+
+<!-- this is for the language id -->        
         <record id="crm_lead_view_form_inherit" model="ir.ui.view">
             <field name="name">crm.lead.view.form.inherit</field>
             <field name="model">crm.lead</field>
@@ -11,6 +13,37 @@
                 <xpath expr="//field[@name='lang_id']" position="attributes">
                     <attribute name="widget">selection</attribute>
                 </xpath>
+            </field>
+        </record>
+
+<!-- Add a new field "closing date" -->
+        <record id="crm_lead_view_form_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.view.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='lead_info']" position="inside">
+                    <label for="closing_date"/>
+                    <div class="o_row">
+                        <field name="closing_date" widget="date"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+
+
+        <!-- Add a new notebook page to the customer form -->
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Leads">
+                        <field name="leads"/>
+                    </page>
+                </notebook>
             </field>
         </record>
 
